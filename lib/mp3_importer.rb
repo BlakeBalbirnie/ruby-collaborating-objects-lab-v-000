@@ -8,16 +8,13 @@ class MP3Importer
 
   def files
     @files = Dir.glob(@path  "/*")
-    # binding.pry
     @files.each_with_index do |file, index|
       @files[index] = file.scan(/mp3s\/(.*)/)[0][0]
     end
     @files
-    # binding.pry
   end
 
   def import
-    # binding.pry
     self.files
     @files.each do |file|
       name = file.split(" - ")[0]
@@ -26,9 +23,7 @@ class MP3Importer
       song.artist = Artist.find_or_create_by_name(name)
       song.artist.add_song(song)
       song.artist.save
-      # binding.pry
     end
-    # binding.pry
   end
 
 end
