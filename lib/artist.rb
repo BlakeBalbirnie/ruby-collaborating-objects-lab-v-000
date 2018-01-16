@@ -13,20 +13,16 @@ class Artist
   end
 
   def save
-    # binding.pry
     if !(@@all.include?(self))
       @@all << self
     end
-    # binding.pry
   end
 
   def add_song(song)
     @songs << song
-    # binding.pry
   end
 
   def self.find_or_create_by_name(name)
-    # binding.pry
     if self.all.detect{|artist| artist.name == name}
       self.all.detect{|artist| artist.name == name}
     else
@@ -41,6 +37,5 @@ class Artist
   def self.all
     @@all
   end
-
 
 end
